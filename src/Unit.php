@@ -16,9 +16,31 @@ class Unit
         $this->armor = new Armors\MissingArmor();
     }
 
+    public static function createSoldier()
+    {
+        $soldier = new Unit('Ramm', new Weapons\BasicSword);
+        $soldier->setArmor(new Armors\BronzeArmor());
+
+        return $soldier;
+    }
+
     public function setWeapon(Weapon $weapon)
     {
         $this->weapon = $weapon;
+
+        return $this;
+    }
+
+    public function setArmor(Armor $armor = null)
+    {
+        $this->armor = $armor;
+
+        return $this;
+    }
+
+    public function setShield()
+    {
+        return $this;
     }
 
     public function getName()
@@ -29,11 +51,6 @@ class Unit
     public function getHp()
     {
         return $this->hp;
-    }
-
-    public function setArmor(Armor $armor = null)
-    {
-        $this->armor = $armor;
     }
 
     public function attack(Unit $opponent)

@@ -11,9 +11,14 @@ Traslator::set([
     'FireBowAttack' => '<b>:unit</b> dispara una flecha de fuego con un <b>Arco de Fuego</b> a <b>:opponent</b>'
 ]);
 
-$ramm = new Unit('Ramm', new Weapons\BasicSword);
+//Metodo factory o tambien llamado un name construct
+$ramm = Unit::createSoldier()
+        ->setWeapon(new Weapons\CrossBow())
+        ->setArmor(new Armors\SilverArmor())
+        ->setShield();
 
-// $ramm->setArmor(new Armors\SilverArmor());
+// $ramm = new Unit('Ramm', new Weapons\BasicSword);
+// $ramm->setArmor(new Armors\BronzeArmor());
 
 $silence = new Unit('Silence', new Weapons\FireBow);
 
